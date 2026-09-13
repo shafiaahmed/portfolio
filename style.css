@@ -1,0 +1,349 @@
+:root {
+  --cream: #faf5ec;
+  --cream-deep: #f1e8d8;
+  --ink: #2b241c;
+  --ink-soft: #5c5245;
+  --terracotta: #c8663f;
+  --terracotta-deep: #a94f2e;
+  --sage: #6f7d5c;
+  --line: #e2d5bd;
+  --max-width: 780px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* subtle paper grain so the flat color doesn't look like a template */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.75rem;
+  font-size: 0.92rem;
+}
+
+.site-header nav a {
+  position: relative;
+  color: var(--ink-soft);
+}
+
+.site-header nav a:hover {
+  color: var(--terracotta-deep);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem 6rem;
+}
+
+.hero-kicker {
+  font-size: 0.9rem;
+  color: var(--sage);
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.15rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+
+.hero-scribble {
+  font-style: italic;
+  color: var(--terracotta-deep);
+  font-weight: 500;
+}
+
+.dot { color: var(--terracotta); }
+
+.hero-sub {
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.35rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--terracotta);
+  color: #fff8ef;
+}
+.btn-primary:hover {
+  background: var(--terracotta-deep);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--line);
+  color: var(--ink);
+}
+.btn-ghost:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta-deep);
+  transform: translateY(-1px);
+}
+
+/* ---------- sections shared ---------- */
+
+section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.tag {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--terracotta);
+  font-size: 0.95rem;
+}
+
+.section-head h2 {
+  font-size: 1.7rem;
+}
+
+/* ---------- work ---------- */
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--line);
+  transition: background 0.2s ease;
+}
+
+.project:first-child {
+  border-top: none;
+}
+
+.project-index {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--line);
+  font-size: 1.1rem;
+  padding-top: 0.15rem;
+}
+
+.project h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.project-role {
+  font-size: 0.85rem;
+  color: var(--sage);
+  margin: 0 0 0.6rem;
+}
+
+.project-desc {
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+  max-width: 52ch;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-tags span {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  background: var(--cream-deep);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+}
+
+.project-link {
+  font-size: 0.88rem;
+  color: var(--terracotta-deep);
+  white-space: nowrap;
+  padding-top: 0.15rem;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- about ---------- */
+
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.about-lead {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.about p {
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+.about-facts {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.about-facts span {
+  color: var(--sage);
+  font-size: 0.85rem;
+  display: inline-block;
+  min-width: 8.5rem;
+}
+
+/* ---------- contact ---------- */
+
+.contact-lead {
+  color: var(--ink-soft);
+  max-width: 48ch;
+}
+
+.contact-email {
+  display: inline-block;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--terracotta-deep);
+  border-bottom: 2px solid var(--terracotta);
+  margin: 1.2rem 0 2rem;
+}
+
+.contact-email:hover {
+  color: var(--terracotta);
+}
+
+.contact-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.contact-links a:hover {
+  color: var(--terracotta-deep);
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3.5rem;
+  font-size: 0.82rem;
+  color: var(--sage);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 560px) {
+  .project {
+    grid-template-columns: 2rem 1fr;
+  }
+  .project-link {
+    grid-column: 2;
+  }
+  .site-header nav {
+    gap: 1.1rem;
+  }
+}
